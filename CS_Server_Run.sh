@@ -16,7 +16,7 @@ function show_help {
 # Set default values
 tun0_ip=""
 password=""
-profile_file="/opt/Cobalt-Strike/havex.pro" # Adjust This
+profile_file="/opt/Cobalt-Strike/havex.profile" # Adjust This
 teamserver_path="/opt/Cobalt-Strike/Server/teamserver" # Adjust This
 
 # Parse command line arguments
@@ -39,7 +39,7 @@ case $key in
     shift
     ;;
     -f|--file)
-    havex_file="$2"
+    profile_file="$2"
     shift
     shift
     ;;
@@ -70,7 +70,7 @@ fi
 sudo chmod +x "$teamserver_path"
 
 # Run teamserver with specified arguments and output success or error message
-if sudo -S bash "$teamserver_path" "$tun0_ip" "$password" "$havex_file"; then
+if sudo -S bash "$teamserver_path" "$tun0_ip" "$password" "$sprofile_file"; then
     echo "Client need to be run manully."
 else
     echo "You have an error, check it out. You are the hacker man ; )"
